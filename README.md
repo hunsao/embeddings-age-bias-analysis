@@ -1,70 +1,73 @@
-# Análisis de Embeddings y Sesgos de Edad en Modelos de Generación de Imágenes
+# Age Bias Analysis in Image Generation Models through Embeddings
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## 📋 Descripción
+> **[Versión en Español](README_ES.md)** | **English Version**
 
-Este proyecto investiga los sesgos de edad en modelos de generación de imágenes basados en difusión, específicamente **Stable Diffusion XL**. A través del análisis de embeddings multimodales, se evalúa cómo diferentes grupos de edad (jóvenes, mediana edad, mayores) son representados en el espacio latente de distintos modelos de aprendizaje profundo.
+## 📋 Description
 
-El estudio utiliza más de **500 actividades cotidianas** extraídas de encuestas de uso del tiempo para generar cuadruplets de prompts que comparan representaciones neutrales con grupos de edad específicos.
+This project investigates age bias in diffusion-based image generation models, specifically **Stable Diffusion XL**. Through multimodal embedding analysis, it evaluates how different age groups (young, middle-aged, older) are represented in the latent space of various deep learning models.
 
-## 🎯 Objetivos
+The study uses over **500 daily activities** extracted from time-use surveys to generate prompt quadruplets that compare neutral representations with age-specific groups.
 
-- Evaluar la similaridad de embeddings entre prompts neutrales y específicos por edad
-- Analizar sesgos de representación en modelos de generación de imágenes
-- Comparar múltiples espacios de embeddings: CLIP, DINO, ResNet, VAE
-- Visualizar la distribución de embeddings mediante técnicas de reducción dimensional (t-SNE, UMAP)
+## 🎯 Objectives
 
-## 🏗️ Arquitectura del Proyecto
+- Evaluate embedding similarity between age-neutral and age-specific prompts
+- Analyze representation biases in image generation models
+- Compare multiple embedding spaces: CLIP, DINO, ResNet, VAE
+- Visualize embedding distributions using dimensionality reduction techniques (t-SNE, UMAP)
 
-### Modelos Utilizados
+## 🏗️ Project Architecture
 
-1. **Stable Diffusion XL** - Generación de imágenes
-2. **CLIP (ViT-B/32)** - Embeddings de texto e imagen
-3. **DINO (ViT-s16)** - Embeddings de imagen autosupervisados
-4. **ResNet-50** - Embeddings de imagen supervisados
-5. **VAE (Stable Diffusion)** - Representaciones latentes pre-imagen
+### Models Used
 
-### Métricas de Evaluación
+1. **Stable Diffusion XL** - Image generation
+2. **CLIP (ViT-B/32)** - Text and image embeddings
+3. **DINO (ViT-s16)** - Self-supervised image embeddings
+4. **ResNet-50** - Supervised image embeddings
+5. **VAE (Stable Diffusion)** - Pre-image latent representations
 
-- **Cosine Similarity** - Para embeddings de CLIP, DINO, ResNet y VAE
-- **Split-Product** - Similitud basada en parches de DINO
-- **t-SNE & UMAP** - Visualización de espacios de embeddings
+### Evaluation Metrics
 
-## 📁 Estructura del Repositorio
+- **Cosine Similarity** - For CLIP, DINO, ResNet, and VAE embeddings
+- **Split-Product** - Patch-based similarity using DINO
+- **t-SNE & UMAP** - Embedding space visualization
+
+## 📁 Repository Structure
 
 ```
 embeddings-age-bias-analysis/
 │
-├── Embeddings_140425.ipynb          # Notebook principal de generación y evaluación
-├── embeddings_plots.ipynb           # Visualizaciones interactivas (t-SNE, UMAP)
-├── README.md                         # Este archivo
-├── requirements.txt                  # Dependencias del proyecto
-└── generated_images/                 # Directorio de imágenes generadas (no incluido)
+├── Embeddings_140425.ipynb          # Main generation and evaluation notebook
+├── embeddings_plots.ipynb           # Interactive visualizations (t-SNE, UMAP)
+├── README.md                         # This file (English)
+├── README_ES.md                      # Spanish version
+├── requirements.txt                  # Project dependencies
+└── generated_images/                 # Generated images directory (not included)
 ```
 
-## 🚀 Instalación
+## 🚀 Installation
 
-### Requisitos Previos
+### Prerequisites
 
-- Python 3.8 o superior
-- CUDA compatible GPU (recomendado: 16GB+ VRAM)
-- 50GB+ de espacio en disco
+- Python 3.8 or higher
+- CUDA-compatible GPU (recommended: 16GB+ VRAM)
+- 50GB+ disk space
 
-### Instalación de Dependencias
+### Installing Dependencies
 
 ```bash
-# Clonar el repositorio
+# Clone the repository
 git clone https://github.com/hunsao/embeddings-age-bias-analysis.git
 cd embeddings-age-bias-analysis
 
-# Crear entorno virtual
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Instalar dependencias
+# Install dependencies
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install diffusers transformers accelerate safetensors
 pip install clip-by-openai scikit-image scikit-learn
@@ -72,76 +75,76 @@ pip install umap-learn matplotlib pandas pillow
 pip install plotly ipywidgets
 ```
 
-## 💻 Uso
+## 💻 Usage
 
-### 1. Generación de Imágenes y Evaluación (`Embeddings_140425.ipynb`)
+### 1. Image Generation and Evaluation (`Embeddings_140425.ipynb`)
 
-Este notebook realiza:
+This notebook performs:
 
-- **Generación de cuadruplets de prompts** para 500+ actividades
-- **Generación de imágenes** usando Stable Diffusion XL con scheduler Euler Ancestral
-- **Extracción de embeddings** de múltiples modelos (CLIP, DINO, ResNet, VAE)
-- **Cálculo de métricas de similitud** entre embeddings
-- **Exportación de resultados** a CSV
+- **Prompt quadruplet generation** for 500+ activities
+- **Image generation** using Stable Diffusion XL with Euler Ancestral scheduler
+- **Embedding extraction** from multiple models (CLIP, DINO, ResNet, VAE)
+- **Similarity metric calculation** between embeddings
+- **Results export** to CSV
 
-**Estructura de Cuadruplets:**
+**Quadruplet Structure:**
 
 ```python
-neutral  = "An ultra realistic portrait photo of a person [actividad]"
-young    = "An ultra realistic portrait photo of a 25 years-old young person [actividad]"
-middle   = "An ultra realistic portrait photo of a 45 year-old middle-aged person [actividad]"
-older    = "An ultra realistic portrait photo of a 75 years-old older person [actividad]"
+neutral  = "An ultra realistic portrait photo of a person [activity]"
+young    = "An ultra realistic portrait photo of a 25 years-old young person [activity]"
+middle   = "An ultra realistic portrait photo of a 45 year-old middle-aged person [activity]"
+older    = "An ultra realistic portrait photo of a 75 years-old older person [activity]"
 ```
 
-**Ejemplo de ejecución:**
+**Execution Example:**
 
 ```python
-# El notebook ejecuta automáticamente la función main()
+# The notebook automatically executes the main() function
 results_df = main()
 results_df.to_csv("quadruplets_results_v3_041425.csv", index=False)
 ```
 
-### 2. Visualización de Embeddings (`embeddings_plots.ipynb`)
+### 2. Embedding Visualization (`embeddings_plots.ipynb`)
 
-Este notebook ofrece:
+This notebook offers:
 
-- **Visualizaciones t-SNE** de embeddings de imagen y texto
-- **Visualizaciones UMAP** con interactividad por grupo de edad
-- **Gráficos interactivos con Plotly** filtrables por actividad
-- **Análisis de similitud coseno** entre modalidades
+- **t-SNE visualizations** of image and text embeddings
+- **UMAP visualizations** with age group interactivity
+- **Interactive Plotly charts** filterable by activity
+- **Cosine similarity analysis** between modalities
 
-**Visualizaciones Generadas:**
+**Generated Visualizations:**
 
-- t-SNE de Image Embeddings (CLIP)
-- t-SNE de Text Embeddings (CLIP)
-- UMAP interactivo por actividad
-- Gráficos destacados por grupo de edad
+- t-SNE of Image Embeddings (CLIP)
+- t-SNE of Text Embeddings (CLIP)
+- Interactive UMAP by activity
+- Age group highlighted plots
 
-## 📊 Resultados
+## 📊 Results
 
-### Métricas Principales
+### Main Metrics
 
-El análisis genera una tabla comparativa de métricas promedio:
+The analysis generates a comparative table of average metrics:
 
-| Espacio de Embedding | Métrica | Neutral vs Young | Neutral vs Middle | Neutral vs Older |
+| Embedding Space     | Metric  | Neutral vs Young | Neutral vs Middle | Neutral vs Older |
 |---------------------|---------|------------------|-------------------|------------------|
 | CLIP (prompts)      | Cosine  | 0.XXX           | 0.XXX             | 0.XXX            |
-| CLIP (imágenes)     | Cosine  | 0.XXX           | 0.XXX             | 0.XXX            |
-| UNET-VAE (latentes) | Cosine  | 0.XXX           | 0.XXX             | 0.XXX            |
+| CLIP (images)       | Cosine  | 0.XXX           | 0.XXX             | 0.XXX            |
+| UNET-VAE (latents)  | Cosine  | 0.XXX           | 0.XXX             | 0.XXX            |
 | ResNet-50           | Cosine  | 0.XXX           | 0.XXX             | 0.XXX            |
 | DINO-s16            | Cosine  | 0.XXX           | 0.XXX             | 0.XXX            |
 | DINO-s16            | Split   | 0.XXX           | 0.XXX             | 0.XXX            |
 
-### Insights Clave
+### Key Insights
 
-- Las métricas permiten identificar si existen sesgos sistemáticos en la representación de grupos de edad
-- Los embeddings de CLIP capturan similitudes semánticas entre prompts
-- Los embeddings de imagen (DINO, ResNet) revelan diferencias visuales
-- El espacio latente VAE muestra cómo la información se codifica antes de la generación
+- Metrics allow identification of systematic biases in age group representation
+- CLIP embeddings capture semantic similarities between prompts
+- Image embeddings (DINO, ResNet) reveal visual differences
+- VAE latent space shows how information is encoded before generation
 
-## 🛠️ Configuración Técnica
+## 🛠️ Technical Configuration
 
-### Parámetros de Generación (Stable Diffusion XL)
+### Generation Parameters (Stable Diffusion XL)
 
 ```python
 num_inference_steps = 20
@@ -152,7 +155,7 @@ scheduler = "euler_ancestral"
 negative_prompt = "painting, cartoon, anime, render, artwork, 3d render, ..."
 ```
 
-### Optimizaciones de Memoria
+### Memory Optimizations
 
 ```python
 pipe.enable_xformers_memory_efficient_attention()
@@ -160,62 +163,62 @@ pipe.enable_attention_slicing("auto")
 pipe.enable_sequential_cpu_offload()
 ```
 
-## 📚 Actividades Evaluadas
+## 📚 Evaluated Activities
 
-El proyecto evalúa 500+ actividades categorizadas en:
+The project evaluates 500+ activities categorized in:
 
-- **Actividades de sueño y descanso** (sleeping, napping, relaxing...)
-- **Cuidado personal** (shower, shaving, doctor visits...)
-- **Trabajo y educación** (programmer, teacher, studying...)
-- **Tareas domésticas** (cooking, cleaning, laundry...)
-- **Compras y servicios** (shopping, banking, errands...)
-- **Cuidado de otros** (childcare, eldercare, helping...)
-- **Actividades sociales** (parties, visiting, phone calls...)
-- **Ocio y entretenimiento** (reading, TV, movies, concerts...)
-- **Ejercicio y deportes** (running, swimming, team sports...)
-- **Actividades artísticas** (painting, music, crafts...)
+- **Sleep and rest activities** (sleeping, napping, relaxing...)
+- **Personal care** (shower, shaving, doctor visits...)
+- **Work and education** (programmer, teacher, studying...)
+- **Household tasks** (cooking, cleaning, laundry...)
+- **Shopping and services** (shopping, banking, errands...)
+- **Care for others** (childcare, eldercare, helping...)
+- **Social activities** (parties, visiting, phone calls...)
+- **Leisure and entertainment** (reading, TV, movies, concerts...)
+- **Exercise and sports** (running, swimming, team sports...)
+- **Artistic activities** (painting, music, crafts...)
 
-Ver archivo completo de actividades en el notebook `Embeddings_140425.ipynb`.
+See complete activity list in the `Embeddings_140425.ipynb` notebook.
 
-## 🔬 Metodología
+## 🔬 Methodology
 
-### Pipeline de Evaluación
+### Evaluation Pipeline
 
-1. **Generación de prompts** → Cuadruplets sistemáticos por actividad
-2. **Generación de imágenes** → Stable Diffusion XL con seed fijo (123)
-3. **Extracción de embeddings** → Múltiples modelos en paralelo
-4. **Cálculo de métricas** → Similitud coseno y split-product
-5. **Almacenamiento** → Caché de imágenes para reutilización
-6. **Análisis estadístico** → Agregación de resultados por grupo
+1. **Prompt generation** → Systematic quadruplets per activity
+2. **Image generation** → Stable Diffusion XL with fixed seed (123)
+3. **Embedding extraction** → Multiple models in parallel
+4. **Metric calculation** → Cosine similarity and split-product
+5. **Storage** → Image caching for reuse
+6. **Statistical analysis** → Result aggregation by group
 
-### Reproducibilidad
+### Reproducibility
 
-- Seed fijo: `torch.manual_seed(123)`
-- Generador CUDA con seed: `torch.Generator(device="cuda").manual_seed(123)`
-- Cache de imágenes para evitar regeneración
+- Fixed seed: `torch.manual_seed(123)`
+- CUDA generator with seed: `torch.Generator(device="cuda").manual_seed(123)`
+- Image cache to avoid regeneration
 
-## 🤝 Contribuciones
+## 🤝 Contributions
 
-Las contribuciones son bienvenidas. Por favor:
+Contributions are welcome. Please:
 
-1. Fork el repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+This project is under the MIT License. See the `LICENSE` file for more details.
 
-## 👤 Autor
+## 👤 Author
 
 **David C.**
 - GitHub: [@hunsao](https://github.com/hunsao)
-- Ubicación: Barcelona
+- Location: Barcelona
 - Bio: Mainly polsci
 
-## 🙏 Agradecimientos
+## 🙏 Acknowledgments
 
 - [Stability AI](https://stability.ai/) - Stable Diffusion XL
 - [OpenAI](https://openai.com/) - CLIP
@@ -223,10 +226,10 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 - [Microsoft](https://www.microsoft.com/) - ResNet
 - [Hugging Face](https://huggingface.co/) - Transformers & Diffusers
 
-## 📞 Contacto
+## 📞 Contact
 
-Si tienes preguntas o sugerencias, por favor abre un issue en el repositorio.
+If you have questions or suggestions, please open an issue in the repository.
 
 ---
 
-**Nota:** Este proyecto es con fines de investigación académica sobre sesgos en modelos de IA. Los resultados no deben interpretarse como evidencia definitiva sin un análisis estadístico riguroso adicional.
+**Note:** This project is for academic research purposes on AI model biases. Results should not be interpreted as definitive evidence without rigorous statistical analysis.
