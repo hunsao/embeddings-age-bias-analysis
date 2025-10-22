@@ -11,7 +11,8 @@
 This project investigates age bias in diffusion-based image generation models, specifically **Stable Diffusion XL**. Through multimodal embedding analysis, it evaluates how different age groups (young, middle-aged, older) are represented in the latent space of various deep learning models.
 The study uses over **500 daily activities** extracted from time-use surveys to generate prompt quadruplets that compare neutral representations with age-specific groups.
 
-This is our implementation based over previous gender studies by `Wu, Y.; Nakashima, Y.; Garcia, N. Revealing Gender Bias from Prompt to Image in Stable Diffusion. J. Imaging 2025, 11, 35. https://doi.org/10.3390/jimaging1102003`
+This is our implementation based over previous gender studies by:
+`Wu, Y.; Nakashima, Y.; Garcia, N. Revealing Gender Bias from Prompt to Image in Stable Diffusion. J. Imaging 2025, 11, 35. https://doi.org/10.3390/jimaging1102003`
 
 ## 🎯 Objectives
 
