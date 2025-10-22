@@ -11,9 +11,7 @@
 This project investigates age bias in diffusion-based image generation models, specifically **Stable Diffusion XL**. Through multimodal embedding analysis, it evaluates how different age groups (young, middle-aged, older) are represented in the latent space of various deep learning models.
 The study uses over **500 daily activities** extracted from time-use surveys to generate prompt quadruplets that compare neutral representations with age-specific groups.
 
-This is based over previous gender studies by `Wu, Y.; Nakashima, Y.; Garcia, N. Revealing Gender Bias from Prompt to Image in Stable Diffusion. J. Imaging 2025, 11, 35. https://doi.org/10.3390/jimaging1102003`
-
-## 🎯 Objectives
+This is our implementation based over previous gender studies by `Wu, Y.; Nakashima, Y.; Garcia, N. Revealing Gender Bias from Prompt to Image in Stable Diffusion. J. Imaging 2025, 11, 35. https://doi.org/10.3390/jimaging1102003`
 
 ## 🎯 Objectives
 
@@ -225,20 +223,15 @@ This project is under the MIT License. See the `LICENSE` file for more details.
 
 **David C.**
 - GitHub: [@hunsao](https://github.com/hunsao)
-- Location: Barcelona
-- Bio: Mainly polsci
 
 ## 🙏 Acknowledgments
 
+- [AGEAI Project]([https://www.wzb.eu/en/research/digitalization-and-societal-transformation/globalization-work-and-production/projects/ageai]) - "Ageism in AI: new forms of age discrimination and exclusion in the era of algorithms and artificial intelligence"
 - [Stability AI](https://stability.ai/) - Stable Diffusion XL
 - [OpenAI](https://openai.com/) - CLIP
 - [Meta AI](https://ai.meta.com/) - DINO
 - [Microsoft](https://www.microsoft.com/) - ResNet
 - [Hugging Face](https://huggingface.co/) - Transformers & Diffusers
-
-## 📞 Contact
-
-If you have questions or suggestions, please open an issue in the repository.
 
 ---
 
