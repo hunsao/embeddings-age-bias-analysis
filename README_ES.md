@@ -12,6 +12,8 @@ Este proyecto investiga los sesgos de edad en modelos de generación de imágene
 
 El estudio utiliza más de **500 actividades cotidianas** extraídas de encuestas de uso del tiempo para generar cuadruplets de prompts que comparan representaciones neutrales con grupos de edad específicos.
 
+Este trabajo se basa en estudios previos sobre género de `Wu, Y.; Nakashima, Y.; Garcia, N. Revealing Gender Bias from Prompt to Image in Stable Diffusion. J. Imaging 2025, 11, 35. https://doi.org/10.3390/jimaging1102003`
+
 ## 🎯 Objetivos
 
 - Evaluar la similaridad de embeddings entre prompts neutrales y específicos por edad
