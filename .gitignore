@@ -37,13 +37,18 @@ env/
 *.swo
 *~
 
-# Generated images and outputs
+# Generated images and outputs (keep directory structure)
 generated_images/
-*.png
-*.jpg
-*.jpeg
-*.bmp
-*.html
+PLOTS/**/*.png
+PLOTS/**/*.jpg
+PLOTS/**/*.jpeg
+PLOTS/**/*.bmp
+PLOTS/**/*.html
+
+# Allow PLOTS directory structure
+!PLOTS/
+!PLOTS/*/
+!PLOTS/*/.gitkeep
 
 # CSV results
 *.csv

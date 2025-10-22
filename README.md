@@ -12,6 +12,8 @@ This project investigates age bias in diffusion-based image generation models, s
 
 The study uses over **500 daily activities** extracted from time-use surveys to generate prompt quadruplets that compare neutral representations with age-specific groups.
 
+This is based over previous gender studies by Wu, Y.; Nakashima, Y.; Garcia, N. Revealing Gender Bias from Prompt to Image in Stable Diffusion. J. Imaging 2025, 11, 35. https://doi.org/10.3390/jimaging1102003
+
 ## 🎯 Objectives
 
 - Evaluate embedding similarity between age-neutral and age-specific prompts
@@ -40,12 +42,19 @@ The study uses over **500 daily activities** extracted from time-use surveys to 
 ```
 embeddings-age-bias-analysis/
 │
-├── Embeddings_140425.ipynb          # Main generation and evaluation notebook
-├── embeddings_plots.ipynb           # Interactive visualizations (t-SNE, UMAP)
+├── SCRIPTS/
+│   ├── embeddings_image_generation.ipynb  # Main generation and evaluation notebook
+│   └── embeddings_plots.ipynb             # Interactive visualizations (t-SNE, UMAP)
+│
+├── PLOTS/
+│   ├── INTERACTIVE_UMAP/                  # Interactive UMAP visualizations
+│   ├── TSNE/                              # t-SNE plots
+│   └── UMAP/                              # UMAP plots
+│
 ├── README.md                         # This file (English)
 ├── README_ES.md                      # Spanish version
 ├── requirements.txt                  # Project dependencies
-└── generated_images/                 # Generated images directory (not included)
+└── .gitignore                        # Git ignore configuration
 ```
 
 ## 🚀 Installation
@@ -77,7 +86,7 @@ pip install plotly ipywidgets
 
 ## 💻 Usage
 
-### 1. Image Generation and Evaluation (`Embeddings_140425.ipynb`)
+### 1. Image Generation and Evaluation (`SCRIPTS/embeddings_image_generation.ipynb`)
 
 This notebook performs:
 
@@ -104,7 +113,7 @@ results_df = main()
 results_df.to_csv("quadruplets_results_v3_041425.csv", index=False)
 ```
 
-### 2. Embedding Visualization (`embeddings_plots.ipynb`)
+### 2. Embedding Visualization (`SCRIPTS/embeddings_plots.ipynb`)
 
 This notebook offers:
 
@@ -178,7 +187,7 @@ The project evaluates 500+ activities categorized in:
 - **Exercise and sports** (running, swimming, team sports...)
 - **Artistic activities** (painting, music, crafts...)
 
-See complete activity list in the `Embeddings_140425.ipynb` notebook.
+See complete activity list in the `SCRIPTS/embeddings_image_generation.ipynb` notebook.
 
 ## 🔬 Methodology
 

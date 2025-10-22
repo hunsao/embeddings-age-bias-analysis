@@ -40,12 +40,19 @@ El estudio utiliza más de **500 actividades cotidianas** extraídas de encuesta
 ```
 embeddings-age-bias-analysis/
 │
-├── Embeddings_140425.ipynb          # Notebook principal de generación y evaluación
-├── embeddings_plots.ipynb           # Visualizaciones interactivas (t-SNE, UMAP)
+├── SCRIPTS/
+│   ├── embeddings_image_generation.ipynb  # Notebook principal de generación y evaluación
+│   └── embeddings_plots.ipynb             # Visualizaciones interactivas (t-SNE, UMAP)
+│
+├── PLOTS/
+│   ├── INTERACTIVE_UMAP/                  # Visualizaciones UMAP interactivas
+│   ├── TSNE/                              # Gráficos t-SNE
+│   └── UMAP/                              # Gráficos UMAP
+│
 ├── README.md                         # Versión en inglés
 ├── README_ES.md                      # Este archivo (Español)
 ├── requirements.txt                  # Dependencias del proyecto
-└── generated_images/                 # Directorio de imágenes generadas (no incluido)
+└── .gitignore                        # Configuración de Git ignore
 ```
 
 ## 🚀 Instalación
@@ -77,7 +84,7 @@ pip install plotly ipywidgets
 
 ## 💻 Uso
 
-### 1. Generación de Imágenes y Evaluación (`Embeddings_140425.ipynb`)
+### 1. Generación de Imágenes y Evaluación (`SCRIPTS/embeddings_image_generation.ipynb`)
 
 Este notebook realiza:
 
@@ -104,7 +111,7 @@ results_df = main()
 results_df.to_csv("quadruplets_results_v3_041425.csv", index=False)
 ```
 
-### 2. Visualización de Embeddings (`embeddings_plots.ipynb`)
+### 2. Visualización de Embeddings (`SCRIPTS/embeddings_plots.ipynb`)
 
 Este notebook ofrece:
 
@@ -178,7 +185,7 @@ El proyecto evalúa 500+ actividades categorizadas en:
 - **Ejercicio y deportes** (running, swimming, team sports...)
 - **Actividades artísticas** (painting, music, crafts...)
 
-Ver archivo completo de actividades en el notebook `Embeddings_140425.ipynb`.
+Ver archivo completo de actividades en el notebook `SCRIPTS/embeddings_image_generation.ipynb`.
 
 ## 🔬 Metodología
 
