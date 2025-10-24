@@ -220,10 +220,9 @@ Contributions are welcome. Please:
 
 This project is under the MIT License. See the `LICENSE` file for more details.
 
-## 👤 Author
+## 👤 Code Author
 
-**David C.**
-- GitHub: [@hunsao](https://github.com/hunsao)
+**David C.** [@hunsao](https://github.com/hunsao)
 
 ## 🙏 Acknowledgments
 
