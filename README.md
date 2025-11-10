@@ -104,7 +104,7 @@ older    = "An ultra realistic portrait photo of a 75 years-old older person [ac
 ```python
 # The notebook automatically executes the main() function
 results_df = main()
-results_df.to_csv("quadruplets_results_v3_041425.csv", index=False)
+results_df.to_csv("name.csv", index=False)
 ```
 
 ### 2. Embedding Visualization (`SCRIPTS/embeddings_plots.ipynb`)
