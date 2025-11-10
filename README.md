@@ -47,7 +47,6 @@ embeddings-age-bias-analysis/
 │   └── UMAP/                              # UMAP plots
 │
 ├── README.md                         # This file (English)
-├── README_ES.md                      # Spanish version
 ├── requirements.txt                  # Project dependencies
 └── .gitignore                        # Git ignore configuration
 ```
