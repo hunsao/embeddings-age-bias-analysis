@@ -1,4 +1,4 @@
-# Age Bias Analysis in Image Generation Models through Embeddings
+# Age Bias Analysis in Image Generation Diffusion Models through Embeddings
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
