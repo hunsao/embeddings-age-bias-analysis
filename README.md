@@ -210,21 +210,25 @@ Contributions are welcome. Please:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
+## 📚 Recommended citation: 
 
-This project is under the MIT License. See the `LICENSE` file for more details.
+Carbonell, D.; Montoya, I.; Rosales, A; Linares-Lanzman, Juan (2025). embeddings-age-bias-analysis: Analysis of embeddings and age biases in image generation models using CLIP, DINO, ResNet, and Stable Diffusion XL [Hunsao. GitHub repository]. GitHub. https://github.com/hunsao/embeddings-age-bias-analysis
 
-## 👤 Code Author
+## Funding: 
 
-**David C.** [@hunsao](https://github.com/hunsao)
+This is part of the "Ageism in AI: new forms of age discrimination and exclusion in the era of algorithms and artificial intelligence" project, funded by Volkswagen Foundation 2023-2027. WZB: https://www.wzb.eu/en/research/digitalization-and-societal-transformation/globalization-work-and-production/projects/ageai Code: 9C565+9C565-1. Project website: https://anyage.ai/
 
 ## 🙏 Acknowledgments
 
-This is our implementation based over previous gender studies by:
+👤 Code Author
+**David C.** [@hunsao](https://github.com/hunsao)
+
+This is our implementation inspired over previous gender studies, see:
 `Wu, Y.; Nakashima, Y.; Garcia, N. Revealing Gender Bias from Prompt to Image in Stable Diffusion. J. Imaging 2025, 11, 35. https://doi.org/10.3390/jimaging1102003`
 
-[AGEAI Project]([https://www.wzb.eu/en/research/digitalization-and-societal-transformation/globalization-work-and-production/projects/ageai]) - "Ageism in AI: new forms of age discrimination and exclusion in the era of algorithms and artificial intelligence"
+## 📄 License
 
+This project is under the MIT License. See the `LICENSE` file for more details.
 
 ---
 
